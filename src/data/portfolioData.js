@@ -26,7 +26,7 @@ export const portfolioData = {
   projects: [
     {
       icon: "📱",
-      title: "ExamVault — Mobile Exam App",
+      title: "Sri Exam — Mobile Exam App",
       desc: "A full-featured mobile examination platform built with Flutter, enabling institutions to conduct secure online exams with real-time analytics, auto-grading, and offline support.",
       tags: [
         { label: "Flutter", color: "blue" },
@@ -35,58 +35,58 @@ export const portfolioData = {
         { label: "REST API", color: "green" },
         { label: "Riverpod", color: "purple" }
       ],
-      link: "#"
+      link: "https://sriexam.pages.dev/"
     },
-    {
-      icon: "🤖",
-      title: "FinBot — AI Financial Chatbot",
-      desc: "An intelligent chatbot powered by large language models, specialized for financial Q&A, portfolio analysis, and market sentiment interpretation using RAG pipelines.",
-      tags: [
-        { label: "Python", color: "orange" },
-        { label: "LLMs", color: "purple" },
-        { label: "LangChain", color: "cyan" },
-        { label: "RAG", color: "green" },
-        { label: "FastAPI", color: "orange" }
-      ],
-      link: "#"
-    },
-    {
-      icon: "📊",
-      title: "FinSight — Financial Data Tools",
-      desc: "A suite of Python tools for financial data ingestion, analysis, and visualization — including actuarial tables, risk modeling, and time-series forecasting dashboards.",
-      tags: [
-        { label: "Python", color: "orange" },
-        { label: "Pandas", color: "blue" },
-        { label: "Plotly", color: "cyan" },
-        { label: "Scikit-learn", color: "green" },
-        { label: "Statsmodels", color: "purple" }
-      ],
-      link: "#"
-    },
-    {
-      icon: "🧠",
-      title: "NLP Sentiment Engine",
-      desc: "A transformer-based NLP pipeline for extracting financial sentiment from news articles and social feeds, feeding signals into a trading strategy backtester.",
-      tags: [
-        { label: "HuggingFace", color: "purple" },
-        { label: "PyTorch", color: "orange" },
-        { label: "BERT", color: "cyan" },
-        { label: "Streamlit", color: "blue" }
-      ],
-      link: "#"
-    },
-    {
-      icon: "📐",
-      title: "Actuarial Risk Calculator",
-      desc: "A statistical tool implementing life tables, mortality models, and premium calculations — designed for insurance insurance mathematics coursework and practical actuarial analysis.",
-      tags: [
-        { label: "Python", color: "orange" },
-        { label: "R", color: "green" },
-        { label: "NumPy", color: "blue" },
-        { label: "SciPy", color: "cyan" }
-      ],
-      link: "#"
-    },
+    // {
+    //   icon: "🤖",
+    //   title: "FinBot — AI Financial Chatbot",
+    //   desc: "An intelligent chatbot powered by large language models, specialized for financial Q&A, portfolio analysis, and market sentiment interpretation using RAG pipelines.",
+    //   tags: [
+    //     { label: "Python", color: "orange" },
+    //     { label: "LLMs", color: "purple" },
+    //     { label: "LangChain", color: "cyan" },
+    //     { label: "RAG", color: "green" },
+    //     { label: "FastAPI", color: "orange" }
+    //   ],
+    //   link: "https://github.com/bhanuka01/FinBot"
+    // },
+    // {
+    //   icon: "📊",
+    //   title: "FinSight — Financial Data Tools",
+    //   desc: "A suite of Python tools for financial data ingestion, analysis, and visualization — including actuarial tables, risk modeling, and time-series forecasting dashboards.",
+    //   tags: [
+    //     { label: "Python", color: "orange" },
+    //     { label: "Pandas", color: "blue" },
+    //     { label: "Plotly", color: "cyan" },
+    //     { label: "Scikit-learn", color: "green" },
+    //     { label: "Statsmodels", color: "purple" }
+    //   ],
+    //   link: "https://github.com/bhanuka01/FinSight"
+    // },
+    // {
+    //   icon: "🧠",
+    //   title: "NLP Sentiment Engine",
+    //   desc: "A transformer-based NLP pipeline for extracting financial sentiment from news articles and social feeds, feeding signals into a trading strategy backtester.",
+    //   tags: [
+    //     { label: "HuggingFace", color: "purple" },
+    //     { label: "PyTorch", color: "orange" },
+    //     { label: "BERT", color: "cyan" },
+    //     { label: "Streamlit", color: "blue" }
+    //   ],
+    //   link: "https://github.com/bhanuka01/NLP-Sentiment-Engine"
+    // },
+    // {
+    //   icon: "📐",
+    //   title: "Actuarial Risk Calculator",
+    //   desc: "A statistical tool implementing life tables, mortality models, and premium calculations — designed for insurance insurance mathematics coursework and practical actuarial analysis.",
+    //   tags: [
+    //     { label: "Python", color: "orange" },
+    //     { label: "R", color: "green" },
+    //     { label: "NumPy", color: "blue" },
+    //     { label: "SciPy", color: "cyan" }
+    //   ],
+    //   link: "https://github.com/bhanuka01/Actuarial-Risk-Calculator"
+    // },
     {
       icon: "🌐",
       title: "ADSS Community Platform",
@@ -97,7 +97,7 @@ export const portfolioData = {
         { label: "Supabase", color: "cyan" },
         { label: "Dart", color: "green" }
       ],
-      link: "#"
+      link: "https://adss.bhanukadilshan2002.workers.dev/"
     }
   ],
   leadership: {
@@ -110,14 +110,14 @@ export const portfolioData = {
     title: "Building the Data Science Community at UoR",
     desc: "As an active member and leader within the Actuarial & Data Science Society (ADSS) at the University of Ruhuna, I work to bridge the gap between academic mathematics and real-world data science practice — organizing workshops, mentoring peers, and driving community engagement across faculties.",
     roles: [
-      { name: "Marketing Director", period: "2024–Present", color: "var(--blue)" },
-      { name: "Tech Event Organizer", period: "2023–Present", color: "var(--cyan)" },
-      { name: "Community Lead — Data Science", period: "2023–Present", color: "#a78bfa" },
-      { name: "Workshop Facilitator — ML & Python", period: "2023–2024", color: "#34d399" }
+      { name: "Marketing Vice President", period: "2025 - 2026", color: "var(--blue)" },
+      { name: "GitHub & Open Source Projects Workshop", period: "2026", color: "var(--cyan)" },
+      // { name: "Community Lead — Data Science", period: "2024 - 2025", color: "#a78bfa" },
+      // { name: "Workshop Facilitator — ML & Python", period: "2024 - 2025", color: "#34d399" }
     ],
     impact: [
-      { num: "500+", label: "Community members reached through events and workshops" },
-      { num: "12+", label: "Tech events organized including hackathons & seminars" }
+      { num: "200+", label: "Community members reached through events and workshops" },
+      { num: "5+", label: "Tech events organized including hackathons & seminars" }
     ],
     expertise: [
       { name: "Machine Learning", level: "90%" },
@@ -128,36 +128,36 @@ export const portfolioData = {
     ]
   },
   articles: [
-    {
-      title: "Building LLM-Powered Financial Assistants with LangChain & RAG",
-      date: "May 2025 · 8 min read",
-      tag: "AI / LLMs",
-      link: "https://medium.com"
-    },
+    // {
+    //   title: "Building LLM-Powered Financial Assistants with LangChain & RAG",
+    //   date: "May 2025 · 8 min read",
+    //   tag: "AI / LLMs",
+    //   link: "https://medium.com"
+    // },
     {
       title: "Flutter State Management Deep Dive: Riverpod vs BLoC in 2024",
       date: "March 2025 · 11 min read",
       tag: "Flutter",
       link: "https://medium.com"
     },
-    {
-      title: "Actuarial Science Meets Machine Learning: Mortality Modeling with Neural Nets",
-      date: "January 2025 · 13 min read",
-      tag: "Data Science",
-      link: "https://medium.com"
-    },
-    {
-      title: "From Equations to Embeddings: Why Math Degrees Are Perfect for AI",
-      date: "November 2024 · 6 min read",
-      tag: "Opinion",
-      link: "https://medium.com"
-    },
-    {
-      title: "Time Series Forecasting for Equity Returns Using LSTM Networks",
-      date: "September 2024 · 10 min read",
-      tag: "ML / Finance",
-      link: "https://medium.com"
-    }
+    // {
+    //   title: "Actuarial Science Meets Machine Learning: Mortality Modeling with Neural Nets",
+    //   date: "January 2025 · 13 min read",
+    //   tag: "Data Science",
+    //   link: "https://medium.com"
+    // },
+    // {
+    //   title: "From Equations to Embeddings: Why Math Degrees Are Perfect for AI",
+    //   date: "November 2024 · 6 min read",
+    //   tag: "Opinion",
+    //   link: "https://medium.com"
+    // },
+    // {
+    //   title: "Time Series Forecasting for Equity Returns Using LSTM Networks",
+    //   date: "September 2024 · 10 min read",
+    //   tag: "ML / Finance",
+    //   link: "https://medium.com"
+    // }
   ],
   contact: {
     email: "bhanukadilshan2002@gmail.com",

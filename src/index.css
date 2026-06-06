@@ -454,6 +454,9 @@ h2 {
   overflow: hidden;
 }
 .project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--bg);
   padding: 2rem;
   transition: background 0.25s;

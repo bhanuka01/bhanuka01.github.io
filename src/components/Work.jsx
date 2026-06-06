@@ -12,7 +12,13 @@ export default function Work() {
 
       <div className="projects-grid">
         {portfolioData.projects.map((project, idx) => (
-          <div key={idx} className="project-card fade-up">
+          <a
+            key={idx}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card fade-up"
+          >
             <div className="project-icon">{project.icon}</div>
             <div className="project-title">{project.title}</div>
             <p className="project-desc">{project.desc}</p>
@@ -23,10 +29,10 @@ export default function Work() {
                 </span>
               ))}
             </div>
-            <a href={project.link} className="project-link">
+            <span className="project-link">
               View Project →
-            </a>
-          </div>
+            </span>
+          </a>
         ))}
       </div>
     </section>
