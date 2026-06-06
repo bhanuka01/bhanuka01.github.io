@@ -19,9 +19,9 @@ export const portfolioData = {
     }
   },
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    medium: "https://medium.com"
+    github: "https://github.com/bhanuka01",
+    linkedin: "https://www.linkedin.com/in/bhanuka2001/",
+    medium: "https://medium.com/@bhanukadilshan2002"
   },
   projects: [
     {
@@ -160,9 +160,9 @@ export const portfolioData = {
     }
   ],
   contact: {
-    email: "bhanuka@example.com",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
+    email: "bhanukadilshan2002@gmail.com",
+    linkedin: "https://www.linkedin.com/in/bhanuka2001/",
+    github: "https://github.com/bhanuka01",
     desc: "Whether you have a project in mind, want to collaborate on research, or just want to connect — I'm always open to a good conversation."
   }
 };
