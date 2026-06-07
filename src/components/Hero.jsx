@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-left">
-        <div className="hero-badge" style={{ animationDelay: '0s' }}>
+        {/* <div className="hero-badge" style={{ animationDelay: '0s' }}>
           ✦ {profile.badge}
-        </div>
+        </div> */}
         <h1 style={{ animationDelay: '0.1s' }}>
           Bridging<br />
           <span className="accent">Data Science</span><br />

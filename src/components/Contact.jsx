@@ -3,18 +3,39 @@ import { portfolioData } from '../data/portfolioData';
 
 export default function Contact() {
   const { contact } = portfolioData;
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    
-    // Simulate reset after 3 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-      e.target.reset();
-    }, 3000);
+    setStatus('sending');
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        setStatus('success');
+        e.target.reset();
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
+
+  const isSending = status === 'sending';
+  const isSuccess = status === 'success';
+  const isError   = status === 'error';
 
   return (
     <section id="contact">
@@ -69,35 +90,79 @@ export default function Contact() {
         </div>
 
         <form className="contact-form fade-up" onSubmit={handleSubmit}>
+          {/* Web3Forms hidden access key */}
+          <input type="hidden" name="access_key" value="99146756-1026-48ad-97a7-900691ffc536" />
+          {/* Honeypot spam filter */}
+          <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+
           <div className="form-row">
             <div className="form-group">
               <label>NAME</label>
-              <input type="text" placeholder="Your name" required disabled={formSubmitted} />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                disabled={isSending || isSuccess}
+              />
             </div>
             <div className="form-group">
               <label>EMAIL</label>
-              <input type="email" placeholder="your@email.com" required disabled={formSubmitted} />
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                disabled={isSending || isSuccess}
+              />
             </div>
           </div>
           <div className="form-group">
             <label>SUBJECT</label>
-            <input type="text" placeholder="What's this about?" disabled={formSubmitted} />
+            <input
+              type="text"
+              name="subject"
+              placeholder="What's this about?"
+              disabled={isSending || isSuccess}
+            />
           </div>
           <div className="form-group">
             <label>MESSAGE</label>
-            <textarea placeholder="Tell me about your project or idea..." disabled={formSubmitted}></textarea>
+            <textarea
+              name="message"
+              placeholder="Tell me about your project or idea..."
+              required
+              disabled={isSending || isSuccess}
+            ></textarea>
           </div>
+
+          {isError && (
+            <p style={{ color: '#f87171', fontSize: '0.85rem', textAlign: 'center' }}>
+              Something went wrong. Please try again.
+            </p>
+          )}
+
           <button
             type="submit"
             className="btn-submit"
             id="submitBtn"
-            disabled={formSubmitted}
+            disabled={isSending || isSuccess}
             style={{
-              backgroundColor: formSubmitted ? '#22c55e' : ''
+              backgroundColor: isSuccess ? '#22c55e' : isError ? '#ef4444' : '',
+              transition: 'background-color 0.3s ease',
             }}
           >
-            {formSubmitted ? (
-              <>Message Sent ✓</>
+            {isSending ? (
+              <>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                  style={{ animation: 'spin 1s linear infinite' }}>
+                  <circle cx="12" cy="12" r="10" strokeOpacity="0.3" />
+                  <path d="M12 2a10 10 0 0 1 10 10" />
+                </svg>
+                <span>Sending…</span>
+              </>
+            ) : isSuccess ? (
+              <span>✓ Message Sent!</span>
             ) : (
               <>
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
