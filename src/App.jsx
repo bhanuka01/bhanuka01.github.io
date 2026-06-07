@@ -3,7 +3,8 @@ import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Work from './components/Work';
-import Leadership from './components/Leadership';
+import Experience from './components/Experience';
+import Certificates from './components/Certificates';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -54,7 +55,13 @@ function App() {
           <span></span>
           <span></span>
         </div>
-        <Leadership />
+        <Experience />
+        <div className="dot-divider">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <Certificates />
         <div className="dot-divider">
           <span></span>
           <span></span>

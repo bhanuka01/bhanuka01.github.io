@@ -6,7 +6,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'work', 'leadership', 'blog', 'contact'];
+      const sections = ['hero', 'work', 'experience', 'certificates', 'blog', 'contact'];
       let current = 'hero';
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -38,10 +38,18 @@ export default function Navbar() {
         </li>
         <li>
           <a
-            href="#leadership"
-            style={{ color: activeSection === 'leadership' ? 'var(--blue-bright)' : '' }}
+            href="#experience"
+            style={{ color: activeSection === 'experience' ? 'var(--blue-bright)' : '' }}
           >
-            community
+            experience
+          </a>
+        </li>
+        <li>
+          <a
+            href="#certificates"
+            style={{ color: activeSection === 'certificates' ? 'var(--blue-bright)' : '' }}
+          >
+            certificates
           </a>
         </li>
         <li>

@@ -6,7 +6,7 @@ export default function Work() {
     <section id="work">
       <div className="section-header fade-up">
         <span className="section-num">01</span>
-        <h2>Experience & Projects</h2>
+        <h2>Projects</h2>
         <div className="section-line"></div>
       </div>
 
