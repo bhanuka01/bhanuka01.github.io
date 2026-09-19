@@ -3,7 +3,6 @@ import { portfolioData } from '../data/portfolioData';
 
 export default function Hero() {
   const { profile, socials } = portfolioData;
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   return (
@@ -79,15 +78,11 @@ export default function Hero() {
                 src={profile.avatar}
                 alt={profile.name}
                 className="profile-photo"
-                onLoad={() => setImageLoaded(true)}
+                fetchPriority="high"
+                loading="eager"
                 onError={() => setImageError(true)}
-                style={{
-                  display: imageLoaded ? 'block' : 'none'
-                }}
               />
-            ) : null}
-
-            {(!profile.avatar || imageError || !imageLoaded) && (
+            ) : (
               <div className="portrait-fallback">
                 <div className="fallback-monogram">BD</div>
                 <div className="fallback-label">{profile.name}</div>
