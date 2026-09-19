@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Work from './components/Work';
@@ -42,35 +42,15 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <div className="dot-divider">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div className="section-divider"></div>
         <Work />
-        <div className="dot-divider">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div className="section-divider"></div>
         <Experience />
-        <div className="dot-divider">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <Certificates />
-        <div className="dot-divider">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div className="section-divider"></div>
         <Blog />
-        <div className="dot-divider">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <div className="section-divider"></div>
+        <Certificates />
+        <div className="section-divider"></div>
         <Contact />
       </main>
       <Footer />

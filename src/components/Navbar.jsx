@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
+  const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'dark';
   });
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'work', 'experience', 'certificates', 'blog', 'contact'];
+      setScrolled(window.scrollY > 20);
+      const sections = ['hero', 'work', 'experience', 'blog', 'certificates', 'contact'];
       let current = 'hero';
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
-        if (el && window.scrollY >= el.offsetTop - 120) {
+        if (el && window.scrollY >= el.offsetTop - 140) {
           current = sectionId;
         }
       }
       setActiveSection(current);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -34,77 +36,62 @@ export default function Navbar() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  const navItems = [
+    { id: 'work', label: 'Work' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'blog', label: 'Writing' },
+    { id: 'certificates', label: 'Certificates' },
+    { id: 'contact', label: 'Contact' },
+  ];
+
   return (
-    <nav>
-      <a href="#hero" className="nav-logo">
-        <span></span>
-        {portfolioData.profile.name}
-      </a>
-      <div className="nav-right">
-        <ul className="nav-links">
-          <li>
-            <a
-              href="#work"
-              style={{ color: activeSection === 'work' ? 'var(--blue-bright)' : '' }}
+    <nav className={`site-nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <a href="#hero" className="nav-logo" aria-label="Home">
+          <span className="logo-badge">BD</span>
+          <span className="logo-name">{portfolioData.profile.name}</span>
+        </a>
+
+        <div className="nav-right">
+          <ul className="nav-links">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`nav-link ${isActive ? 'active' : ''}`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="nav-actions">
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Toggle visual theme"
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
-              work
-            </a>
-          </li>
-          <li>
-            <a
-              href="#experience"
-              style={{ color: activeSection === 'experience' ? 'var(--blue-bright)' : '' }}
-            >
-              experience
-            </a>
-          </li>
-          <li>
-            <a
-              href="#certificates"
-              style={{ color: activeSection === 'certificates' ? 'var(--blue-bright)' : '' }}
-            >
-              certificates
-            </a>
-          </li>
-          <li>
-            <a
-              href="#blog"
-              style={{ color: activeSection === 'blog' ? 'var(--blue-bright)' : '' }}
-            >
-              writing
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              style={{ color: activeSection === 'contact' ? 'var(--blue-bright)' : '' }}
-            >
-              contact
-            </a>
-          </li>
-        </ul>
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-          {theme === 'dark' ? (
-            <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          ) : (
-            <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-          )}
-        </button>
+              {theme === 'dark' ? (
+                <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                  <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" />
+                </svg>
+              ) : (
+                <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
   );
