@@ -9,7 +9,7 @@ lerna-debug.log*
 
 node_modules
 
-
+distCopy
 *.local
 
 # Editor directories and files

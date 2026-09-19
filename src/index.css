@@ -196,14 +196,14 @@ body.light-mode .serif-title {
   background: var(--accent-indigo);
   margin-top: 4px;
   opacity: 0.7;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 /* Theme-Colored Icon Box */
 .theme-icon-box {
   width: 38px;
   height: 38px;
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--icon-box-bg);
   border: 1px solid var(--icon-box-border);
   display: flex;
@@ -217,7 +217,7 @@ body.light-mode .serif-title {
 .theme-icon-box.sm {
   width: 30px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .theme-icon-box svg {
@@ -235,10 +235,10 @@ body.light-mode .serif-title {
   display: inline-flex;
   align-items: center;
   padding: 3px 9px;
-  border-radius: 5px;
+  border-radius: 0;
   font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.02em;
   color: var(--tag-text);
   background: var(--tag-bg);
   border: 1px solid var(--tag-border);
@@ -249,7 +249,7 @@ body.light-mode .serif-title {
 .monochrome-tag.sm {
   padding: 2px 7px;
   font-size: 0.65rem;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .monochrome-tag:hover {
@@ -259,7 +259,7 @@ body.light-mode .serif-title {
 
 .theme-pill {
   padding: 4px 11px;
-  border-radius: 100px;
+  border-radius: 0;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -276,17 +276,17 @@ body.light-mode .serif-title {
   transform: translateY(-1px);
 }
 
-/* Buttons (Colored Premium Feel) */
+/* Buttons (Colored Premium Feel - Sharp Architectural Edges) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 9px 20px;
-  border-radius: 100px;
+  border-radius: 0;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   text-decoration: none;
   background: var(--accent-gradient);
   color: #ffffff;
@@ -307,11 +307,11 @@ body.light-mode .serif-title {
   align-items: center;
   gap: 7px;
   padding: 9px 18px;
-  border-radius: 100px;
+  border-radius: 0;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   text-decoration: none;
   background-color: var(--surface);
   color: var(--text-secondary);
@@ -370,7 +370,7 @@ body.light-mode .serif-title {
   font-size: 1.05rem;
   width: 28px;
   height: 28px;
-  border-radius: 7px;
+  border-radius: 0;
   background: var(--surface);
   border: 1px solid rgba(99, 102, 241, 0.3);
   color: #a5b4fc;
@@ -416,7 +416,7 @@ body.light-mode .logo-badge {
   color: var(--text-tertiary);
   letter-spacing: 0.02em;
   padding: 5px 10px;
-  border-radius: 100px;
+  border-radius: 0;
   transition: all 0.2s ease;
 }
 
@@ -438,7 +438,7 @@ body.light-mode .logo-badge {
 .theme-toggle {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text-secondary);
@@ -480,13 +480,13 @@ body.light-mode .logo-badge {
   flex-direction: column;
 }
 
-/* Status Badge with Emerald Pulse */
+/* Status Badge with Emerald Diamond Pulse */
 .status-badge {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   padding: 4px 11px;
-  border-radius: 100px;
+  border-radius: 0;
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
   width: fit-content;
@@ -496,15 +496,16 @@ body.light-mode .logo-badge {
 .status-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0;
+  transform: rotate(45deg);
   background: #10b981;
   box-shadow: 0 0 10px #10b981;
   animation: emeraldPulse 2.2s infinite;
 }
 
 @keyframes emeraldPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.8); }
+  0%, 100% { opacity: 1; transform: rotate(45deg) scale(1); }
+  50% { opacity: 0.35; transform: rotate(45deg) scale(0.8); }
 }
 
 .status-text {
@@ -594,7 +595,7 @@ body.light-mode .serif-accent {
   align-items: center;
   gap: 6px;
   padding: 5px 12px;
-  border-radius: 100px;
+  border-radius: 0;
   font-size: 0.74rem;
   font-weight: 500;
   text-decoration: none;
@@ -616,7 +617,7 @@ body.light-mode .serif-accent {
   height: 14px;
 }
 
-/* Hero Portrait Frame (Natural Colors & Premium Glow) */
+/* Hero Portrait Frame (Sharp Architectural Edges & Technical Brackets) */
 .hero-right {
   display: flex;
   justify-content: center;
@@ -632,9 +633,9 @@ body.light-mode .serif-accent {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1.2;
-  border-radius: 16px;
+  border-radius: 0;
   background: var(--surface);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(99, 102, 241, 0.35);
   overflow: hidden;
   box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.6), 0 0 28px -6px rgba(79, 70, 229, 0.25);
   transition: all 0.3s ease;
@@ -647,18 +648,18 @@ body.light-mode .serif-accent {
 
 .bracket {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 13px;
+  height: 13px;
   border-color: #818cf8;
   border-style: solid;
-  opacity: 0.6;
+  opacity: 0.8;
   z-index: 3;
 }
 
-.bracket-tl { top: 10px; left: 10px; border-width: 1.5px 0 0 1.5px; }
-.bracket-tr { top: 10px; right: 10px; border-width: 1.5px 1.5px 0 0; }
-.bracket-bl { bottom: 10px; left: 10px; border-width: 0 0 1.5px 1.5px; }
-.bracket-br { bottom: 10px; right: 10px; border-width: 0 1.5px 1.5px 0; }
+.bracket-tl { top: 7px; left: 7px; border-width: 1.5px 0 0 1.5px; }
+.bracket-tr { top: 7px; right: 7px; border-width: 1.5px 1.5px 0 0; }
+.bracket-bl { bottom: 7px; left: 7px; border-width: 0 0 1.5px 1.5px; }
+.bracket-br { bottom: 7px; right: 7px; border-width: 0 1.5px 1.5px 0; }
 
 /* Profile Photo: Full Natural Rich Colors */
 .profile-photo {
@@ -703,7 +704,7 @@ body.light-mode .serif-accent {
 .portrait-glass-overlay {
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 0;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   pointer-events: none;
 }
@@ -718,7 +719,7 @@ body.light-mode .serif-accent {
 .stat-capsule {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
@@ -761,7 +762,7 @@ body.light-mode .serif-accent {
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 1.35rem;
   display: flex;
   flex-direction: column;
@@ -806,7 +807,7 @@ body.light-mode .serif-accent {
 .project-arrow-badge {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid var(--border);
   background: var(--bg);
   display: flex;
@@ -915,7 +916,7 @@ body.light-mode .serif-accent {
 .experience-item, .education-item {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 1.25rem;
   box-shadow: var(--card-shadow);
   transition: all 0.25s ease;
@@ -989,7 +990,8 @@ body.light-mode .serif-accent {
 .timeline-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0;
+  transform: rotate(45deg);
   background: var(--accent-indigo);
   box-shadow: 0 0 8px var(--accent-indigo);
   z-index: 2;
@@ -1077,7 +1079,7 @@ body.light-mode .serif-accent {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--surface);
   box-shadow: var(--card-shadow);
@@ -1140,7 +1142,7 @@ body.light-mode .article-item:hover .article-title {
 .article-arrow-box {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -1173,7 +1175,7 @@ body.light-mode .article-item:hover .article-title {
 .cert-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 1.15rem;
   display: flex;
   flex-direction: column;
@@ -1234,7 +1236,7 @@ body.light-mode .article-item:hover .article-title {
   padding: 5px 8px;
   background: var(--bg-subtle);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .cert-cred-label {
@@ -1307,7 +1309,7 @@ body.light-mode .cert-cred-value {
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   text-decoration: none;
@@ -1348,11 +1350,11 @@ body.light-mode .cert-cred-value {
   transform: translate(2px, -2px);
 }
 
-/* Contact Form (Compact) */
+/* Contact Form (Compact & Sharp Geometric Frame) */
 .contact-form {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1383,7 +1385,7 @@ body.light-mode .cert-cred-value {
 .form-group textarea {
   background: var(--bg-subtle);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 8px 12px;
   font-family: var(--font-sans);
   font-size: 0.84rem;
@@ -1491,7 +1493,7 @@ body.light-mode .cert-cred-value {
   align-items: center;
   gap: 5px;
   padding: 3px 9px;
-  border-radius: 100px;
+  border-radius: 0;
   background: var(--surface);
   border: 1px solid var(--border);
 }
@@ -1530,7 +1532,7 @@ body.light-mode .cert-cred-value {
 
 ::-webkit-scrollbar-thumb {
   background: var(--surface-active);
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {

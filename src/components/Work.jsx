@@ -6,7 +6,7 @@ function ProjectIcon({ title }) {
   if (isMobile) {
     return (
       <svg className="project-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="5" y="2" width="14" height="20" rx="3" />
+        <rect x="5" y="2" width="14" height="20" rx="0" />
         <path d="M12 18h.01" />
         <path d="M9 5h6" />
       </svg>
@@ -15,7 +15,7 @@ function ProjectIcon({ title }) {
 
   return (
     <svg className="project-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <rect x="2" y="3" width="20" height="14" rx="0" />
       <line x1="8" y1="21" x2="16" y2="21" />
       <line x1="12" y1="17" x2="12" y2="21" />
       <circle cx="6" cy="7" r="1" fill="currentColor" />
