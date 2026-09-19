@@ -1,35 +1,59 @@
 import { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
 
+// Secure access key loaded from environment variables with safe fallback
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '99146756-1026-48ad-97a7-900691ffc536';
+
 export default function Contact() {
   const { contact } = portfolioData;
   const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const [resultMessage, setResultMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('sending');
+    if (status === 'sending') return;
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    setStatus('sending');
+    setResultMessage('Dispatching message…');
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // Append access_key and identifier securely
+    formData.append('access_key', ACCESS_KEY);
+    formData.append('from_name', 'Bhanuka Dilshan Portfolio');
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
+        body: formData,
       });
-      const json = await res.json();
-      if (res.ok && json.success) {
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
         setStatus('success');
-        e.target.reset();
-        setTimeout(() => setStatus('idle'), 5000);
+        setResultMessage(data.message || 'Message Transmitted Successfully ✓');
+        form.reset();
+        setTimeout(() => {
+          setStatus('idle');
+          setResultMessage('');
+        }, 6000);
       } else {
         setStatus('error');
-        setTimeout(() => setStatus('idle'), 4000);
+        setResultMessage(data.message || 'Unable to send message. Please try emailing directly.');
+        setTimeout(() => {
+          setStatus('idle');
+          setResultMessage('');
+        }, 5000);
       }
     } catch {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 4000);
+      setResultMessage('Network error. Please try emailing directly.');
+      setTimeout(() => {
+        setStatus('idle');
+        setResultMessage('');
+      }, 5000);
     }
   };
 
@@ -114,8 +138,15 @@ export default function Contact() {
         </div>
 
         <form className="contact-form fade-up" onSubmit={handleSubmit}>
-          <input type="hidden" name="access_key" value="99146756-1026-48ad-97a7-900691ffc536" />
-          <input type="checkbox" name="botcheck" style={{ display: 'none' }} />
+          {/* Honeypot spam protection (bots fill hidden inputs; Web3Forms drops them) */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hidden"
+            style={{ display: 'none' }}
+            tabIndex={-1}
+            autoComplete="off"
+          />
 
           <div className="form-row">
             <div className="form-group">
@@ -126,7 +157,9 @@ export default function Contact() {
                 name="name"
                 placeholder="Ada Lovelace"
                 required
+                maxLength={100}
                 disabled={isSending || isSuccess}
+                autoComplete="name"
               />
             </div>
             <div className="form-group">
@@ -137,7 +170,9 @@ export default function Contact() {
                 name="email"
                 placeholder="ada@example.com"
                 required
+                maxLength={120}
                 disabled={isSending || isSuccess}
+                autoComplete="email"
               />
             </div>
           </div>
@@ -149,6 +184,7 @@ export default function Contact() {
               type="text"
               name="subject"
               placeholder="Collaboration or Inquiry"
+              maxLength={150}
               disabled={isSending || isSuccess}
             />
           </div>
@@ -160,13 +196,20 @@ export default function Contact() {
               name="message"
               placeholder="Tell me about your project, idea, or initiative..."
               required
+              maxLength={3000}
               disabled={isSending || isSuccess}
             ></textarea>
           </div>
 
           {isError && (
-            <p className="form-error-msg">
-              Unable to send message. Please try emailing directly.
+            <p className="form-error-msg" role="alert">
+              {resultMessage || 'Unable to send message. Please try emailing directly.'}
+            </p>
+          )}
+
+          {isSuccess && (
+            <p className="form-success-msg" role="status">
+              {resultMessage || 'Message Transmitted Successfully ✓'}
             </p>
           )}
 

@@ -11,6 +11,9 @@ node_modules
 
 distCopy
 *.local
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
