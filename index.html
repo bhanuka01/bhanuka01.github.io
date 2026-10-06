@@ -37,6 +37,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="/my.jpg" fetchpriority="high" />
 
+    <!-- Google tag (gtag.js) - Google Analytics 4 -->
+    <script async id="ga4-gtag-script" src="https://www.googletagmanager.com/gtag/js?id=G-B2F72P9ZBF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'granted'
+      });
+      gtag('config', 'G-B2F72P9ZBF', {
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false,
+        'restricted_data_processing': true,
+        'send_page_view': false
+      });
+    </script>
+
     <!-- Instant Theme Detection to Prevent FOUC -->
     <script>
       (function() {
