@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
+import { trackEvent } from '../utils/analytics';
 
 // Secure access key loaded from environment variables with safe fallback
 const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '99146756-1026-48ad-97a7-900691ffc536';
@@ -34,6 +35,11 @@ export default function Contact() {
       if (response.ok && data.success) {
         setStatus('success');
         setResultMessage(data.message || 'Message Transmitted Successfully ✓');
+        trackEvent('generate_lead', {
+          event_category: 'Contact',
+          form_name: 'contact_form',
+          method: 'web3forms',
+        });
         form.reset();
         setTimeout(() => {
           setStatus('idle');
@@ -42,6 +48,11 @@ export default function Contact() {
       } else {
         setStatus('error');
         setResultMessage(data.message || 'Unable to send message. Please try emailing directly.');
+        trackEvent('form_error', {
+          event_category: 'Contact',
+          form_name: 'contact_form',
+          error_message: data.message || 'Submission error',
+        });
         setTimeout(() => {
           setStatus('idle');
           setResultMessage('');
@@ -50,6 +61,11 @@ export default function Contact() {
     } catch {
       setStatus('error');
       setResultMessage('Network error. Please try emailing directly.');
+      trackEvent('form_error', {
+        event_category: 'Contact',
+        form_name: 'contact_form',
+        error_message: 'Network error',
+      });
       setTimeout(() => {
         setStatus('idle');
         setResultMessage('');

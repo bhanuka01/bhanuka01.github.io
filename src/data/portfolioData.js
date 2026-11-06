@@ -179,7 +179,7 @@ export const portfolioData = {
 
   ],
   contact: {
-    email: "bhanukadilshan2002@gmail.com",
+    email: "hello@bhanukadilshan.me",
     linkedin: "https://www.linkedin.com/in/bhanuka2001/",
     github: "https://github.com/bhanuka01",
     desc: "Whether you have a project in mind, want to collaborate on research, or just want to connect — I'm always open to a good conversation."

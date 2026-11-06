@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
+import { trackEvent, SECTION_TITLES } from '../utils/analytics';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -26,6 +27,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Track section engagement when visitor lingers on a section
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      trackEvent('section_view', {
+        section_id: activeSection,
+        section_name: SECTION_TITLES[activeSection] || activeSection,
+      });
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, [activeSection]);
+
   useEffect(() => {
     if (theme === 'light') {
       document.body.classList.add('light-mode');
@@ -36,7 +48,11 @@ export default function Navbar() {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme(prev => {
+      const nextTheme = prev === 'dark' ? 'light' : 'dark';
+      trackEvent('toggle_theme', { theme: nextTheme });
+      return nextTheme;
+    });
   };
 
   const navItems = [

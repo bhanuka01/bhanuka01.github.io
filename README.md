@@ -72,6 +72,19 @@ The inquiry form integrates with **Web3Forms** with enterprise-grade front-end s
 
 ---
 
+## 📈 Privacy-Conscious Google Analytics 4 (GA4)
+
+Production-ready analytics integration utilizing the official Google tag (`gtag.js`):
+
+- **Environment-Driven Configuration**: Configured via `VITE_GA_MEASUREMENT_ID` with safe fallback.
+- **Privacy Protections**:
+  - Respects **Do Not Track (DNT)** and **Global Privacy Control (GPC)** headers.
+  - **Google Consent Mode v2**: Denies advertising/tracking storage, grants anonymous analytics only.
+  - Enforces `anonymize_ip: true`, `allow_google_signals: false`, and `allow_ad_personalization_signals: false`.
+- **Intelligent SPA Tracking**: Tracks initial page loads, section hash changes (`/#work`, `/#experience`, etc.), deep reading dwell time via `section_view`, and inquiry conversions (`generate_lead`).
+
+---
+
 ## 📁 Repository Structure
 
 ```text
@@ -90,6 +103,8 @@ The inquiry form integrates with **Web3Forms** with enterprise-grade front-end s
 │   │   └── Footer.jsx       # Minimalist hairline footer & back-to-top
 │   ├── data/
 │   │   └── portfolioData.js # CENTRAL CONTENT REPOSITORY (update all text/links here)
+│   ├── utils/
+│   │   └── analytics.js     # Production-ready, privacy-conscious GA4 tracking module
 │   ├── App.jsx              # Main view orchestrator & section divider hairlines
 │   ├── index.css            # Complete design system (custom variables, sharp edges, themes)
 │   └── main.jsx             # React 19 entry point
@@ -126,9 +141,10 @@ The inquiry form integrates with **Web3Forms** with enterprise-grade front-end s
    ```bash
    cp .env.example .env
    ```
-   Add your Web3Forms access key if you wish to override the default:
+   Add your Web3Forms access key and Google Analytics 4 Measurement ID:
    ```env
    VITE_WEB3FORMS_ACCESS_KEY=your_access_key_here
+   VITE_GA_MEASUREMENT_ID=G-B2F72P9ZBF
    ```
 
 4. **Start the local development server**:
