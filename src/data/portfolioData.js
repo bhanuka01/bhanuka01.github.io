@@ -48,7 +48,7 @@ export const portfolioData = {
         { label: "Supabase", color: "cyan" },
         { label: "GitHub Actions", color: "green" }
       ],
-      link: "https://adss.bhanukadilshan2002.workers.dev/"
+      link: "https://adssruhuna.vercel.app/"
     }
   ],
   experiences: [
