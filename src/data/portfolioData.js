@@ -27,28 +27,77 @@ export const portfolioData = {
     {
       icon: "📱",
       title: "Sri Exam — Mobile Exam App",
-      desc: "A full-featured mobile examination platform built with Flutter, enabling institutions to conduct secure online exams with real-time analytics, auto-grading, and offline support.",
+      metric: "2K+ Downloads",
+      desc: "A full-featured mobile examination platform built with Flutter with 2K+ downloads, enabling institutions to conduct secure online exams with real-time analytics, auto-grading, and offline support.",
       tags: [
         { label: "Flutter", color: "blue" },
         { label: "Dart", color: "blue" },
         { label: "REST API", color: "purple" },
-        { label: "Play Store Console", color: "green" },
-
+        { label: "Play Store Console", color: "green" }
       ],
-      link: "https://sriexam.pages.dev/"
+      link: "https://sriexam.pages.dev/",
+      actions: [
+        {
+          label: "Play Store",
+          type: "playstore",
+          url: "https://play.google.com/store/apps/details?id=com.bhanu.sriexam"
+        },
+        {
+          label: "Live Site",
+          type: "site",
+          url: "https://sriexam.pages.dev/"
+        }
+      ]
     },
-    //
     {
       icon: "🌐",
       title: "ADSS Community Platform",
-      desc: "A web platform for the Actuarial & Data Science Society at the University of Ruhuna — event management, resource sharing, and member dashboards built for the academic community.",
+      metric: "200+ Students",
+      desc: "A web platform used by 200+ students at the Actuarial & Data Science Society, University of Ruhuna — featuring event management, resource sharing, and member dashboards.",
       tags: [
         { label: "React", color: "blue" },
         { label: "Vite", color: "orange" },
         { label: "Supabase", color: "cyan" },
         { label: "GitHub Actions", color: "green" }
       ],
-      link: "https://adssruhuna.vercel.app/"
+      link: "https://adssruhuna.vercel.app/",
+      actions: [
+        {
+          label: "GitHub",
+          type: "github",
+          url: "https://github.com/bhanuka01/society-management"
+        },
+        {
+          label: "Live Site",
+          type: "site",
+          url: "https://adssruhuna.vercel.app/"
+        }
+      ]
+    },
+    {
+      icon: "📈",
+      title: "CSE S&P SL20 Forecast & Risk Dashboard",
+      metric: "11 SL20 Equities",
+      desc: "An interactive Streamlit & Plotly dashboard backed by a pre-registered, leakage-controlled machine learning pipeline studying 11 Colombo Stock Exchange (S&P SL20) equities.",
+      tags: [
+        { label: "Python", color: "blue" },
+        { label: "Streamlit", color: "orange" },
+        { label: "Plotly", color: "purple" },
+        { label: "Machine Learning", color: "green" }
+      ],
+      link: "https://cse-sl20-dashboard.streamlit.app",
+      actions: [
+        {
+          label: "GitHub",
+          type: "github",
+          url: "https://github.com/bhanuka01/cse-sl20-forecast-dashboard"
+        },
+        {
+          label: "Live Site",
+          type: "site",
+          url: "https://cse-sl20-dashboard.streamlit.app"
+        }
+      ]
     }
   ],
   experiences: [
